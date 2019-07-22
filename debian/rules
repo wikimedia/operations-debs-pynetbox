@@ -9,8 +9,10 @@ export PYBUILD_NAME=pynetbox
 	dh $@ --with python2,python3 --buildsystem=pybuild
 
 override_dh_auto_test:
-	# skip
+	# skip due to dep weirdness
 
+override_dh_auto_clean:
+	# skip due to dep weirdness
 
 # If you need to rebuild the Sphinx documentation
 # Add spinxdoc to the dh --with line
