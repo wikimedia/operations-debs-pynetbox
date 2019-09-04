@@ -1,5 +1,11 @@
+pynetbox (4.0.6-3) unstable; urgency=medium
+
+  * Fix requirements.
+
+ -- Cas Rusnov <crusnov@wikimedia.org>  Wed,  4 Sep 2019 11:10:00 -0700
+
 pynetbox (4.0.6-2) unstable; urgency=medium
 
-  * Initial release 
+  * Initial release
 
  -- Cas Rusnov <crusnov@wikimedia.org>  Tue, 14 May 2019 19:50:02 -0700
