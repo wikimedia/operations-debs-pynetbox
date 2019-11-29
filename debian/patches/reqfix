@@ -32,3 +32,15 @@ Last-Update: 2019-09-04
 +six>=1.0,<2.0
 +
 +
+
+--- pynetbox-4.0.6.orig/setup.py
++++ pynetbox-4.0.6/setup.py
+@@ -13,7 +13,7 @@ setup(
+     packages=find_packages(),
+     install_requires=[
+         'requests>=2.20.0,<3.0',
+-        'six==1.*',
++        'six>=1.0,<2.0',
+     ],
+     zip_safe=False,
+     keywords=['netbox'],
