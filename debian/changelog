@@ -1,3 +1,20 @@
+pynetbox (5.0.7-1) unstable; urgency=medium
+
+  * Update from upstream.
+  * Fix copyright boilerplate.
+  * Adjust `reqfix` patch.
+  * Update standards version.
+  * Fix section to `python`.
+  * Update minimum Python3 version.
+
+ -- Cas Rusnov <crusnov@wikimedia.org>  Mon, 31 Aug 2020 13:00:00 -0700
+ 
+pynetbox (5.0.7-0) unstable; urgency=medium
+
+  * Update upstream to 5.0.7.
+
+ -- Cas Rusnov <crusnov@wikimedia.org>  Fri, 28 Aug 2020 13:40:00 -0700
+
 pynetbox (4.0.6-4) UNRELEASED; urgency=medium
 
   * Add configuration for gbp buildpackage.
