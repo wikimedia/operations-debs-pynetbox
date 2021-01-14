@@ -15,7 +15,7 @@ limitations under the License.
 """
 from pynetbox.core.endpoint import Endpoint
 from pynetbox.core.query import Request
-from pynetbox.models import dcim, ipam, virtualization, circuits, extras
+from pynetbox.models import dcim, ipam, virtualization, circuits, extras, users
 
 
 class App(object):
@@ -40,6 +40,7 @@ class App(object):
         "circuits": circuits,
         "virtualization": virtualization,
         "extras": extras,
+        "users": users,
     }
 
     def _setmodel(self):
@@ -109,3 +110,66 @@ class App(object):
             http_session=self.api.http_session,
         ).get()
         return custom_field_choices
+
+    def config(self):
+        """ Returns config response from app
+
+        :Returns: Raw response from NetBox's config endpoint.
+        :Raises: :py:class:`.RequestError` if called for an invalid endpoint.
+        :Example:
+
+        >>> pprint.pprint(nb.users.config())
+        {'tables': {'DeviceTable': {'columns': ['name',
+                                                'status',
+                                                'tenant',
+                                                'device_role',
+                                                'site',
+                                                'primary_ip',
+                                                'tags']}}}
+        """
+        config = Request(
+            base="{}/{}/config/".format(self.api.base_url, self.name,),
+            token=self.api.token,
+            private_key=self.api.private_key,
+            http_session=self.api.http_session,
+        ).get()
+        return config
+
+
+class PluginsApp(object):
+    """
+    Basically valid plugins api could be handled by same App class,
+    but you need to add plugins to request url path.
+
+    :returns: :py:class:`.App` with added plugins into path.
+
+    """
+
+    def __init__(self, api):
+        self.api = api
+
+    def __getattr__(self, name):
+        return App(self.api, "plugins/{}".format(name))
+
+    def installed_plugins(self):
+        """ Returns raw response with installed plugins
+
+        :returns: Raw response NetBox's installed plugins.
+        :Example:
+
+        >>> nb.plugins.installed_plugins()
+        [{
+            'name': 'test_plugin', 
+            'package': 'test_plugin', 
+            'author': 'Dmitry', 
+            'description': 'Netbox test plugin', 
+            'verison': '0.10'
+        }]
+        """
+        installed_plugins = Request(
+            base="{}/plugins/installed-plugins".format(self.api.base_url,),
+            token=self.api.token,
+            private_key=self.api.private_key,
+            http_session=self.api.http_session,
+        ).get()
+        return installed_plugins
