@@ -1,3 +1,12 @@
+pynetbox (5.3.0-1) unstable; urgency=medium
+
+  * Upstream release v5.3.0
+  * Removing unnecessary file gpb.conf
+  * Reverted changes to master's setup.py
+  * Fixed patch to setup.py
+
+ -- Riccardo Coccioli <rcoccioli@wikimedia.org>  Thu, 14 Jan 2021 12:09:00 +0100
+
 pynetbox (5.0.7-1) unstable; urgency=medium
 
   * Update from upstream.
@@ -8,7 +17,7 @@ pynetbox (5.0.7-1) unstable; urgency=medium
   * Update minimum Python3 version.
 
  -- Cas Rusnov <crusnov@wikimedia.org>  Mon, 31 Aug 2020 13:00:00 -0700
- 
+
 pynetbox (5.0.7-0) unstable; urgency=medium
 
   * Update upstream to 5.0.7.
