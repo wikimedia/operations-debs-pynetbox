@@ -1,3 +1,10 @@
+pynetbox (5.3.0-2) unstable; urgency=medium
+
+  * Remove support for Python2
+  * Make it compatible with bullseye
+
+ -- Riccardo Coccioli <rcoccioli@wikimedia.org>  Thu, 29 Apr 2021 11:33:00 +0200
+
 pynetbox (5.3.0-1) unstable; urgency=medium
 
   * Upstream release v5.3.0
